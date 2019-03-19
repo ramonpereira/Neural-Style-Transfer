@@ -29,11 +29,11 @@ Contains few improvements suggested in the paper Improving the Neural Algorithm 
 -----------------------------------------------------------------------------------------------------------------------
 """
 
-THEANO_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
-TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
+THEANO_WEIGHTS_PATH_NO_TOP = 'vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
+TF_WEIGHTS_PATH_NO_TOP = 'vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
-TH_19_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_th_dim_ordering_th_kernels_notop.h5'
-TF_19_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5'
+TH_19_WEIGHTS_PATH_NO_TOP = 'vgg19_weights_th_dim_ordering_th_kernels_notop.h5'
+TF_19_WEIGHTS_PATH_NO_TOP = 'vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
 
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')
@@ -361,14 +361,14 @@ model = Model(ip, x)
 
 if K.image_dim_ordering() == "th":
     if args.model == "vgg19":
-        weights = get_file('vgg19_weights_th_dim_ordering_th_kernels_notop.h5', TH_19_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
+        weights = 'vgg19_weights_th_dim_ordering_th_kernels_notop.h5'
     else:
-        weights = get_file('vgg16_weights_th_dim_ordering_th_kernels_notop.h5', THEANO_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
+        weights = 'vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
 else:
     if args.model == "vgg19":
-        weights = get_file('vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5', TF_19_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
+        weights = 'vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5'
     else:
-        weights = get_file('vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5', TF_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
+        weights = 'vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
 model.load_weights(weights)
 
